@@ -36,3 +36,23 @@ def get_links_title(s):
             sleep(.05)
             
     return titles, news, links, date, author
+
+
+# a repo-dictionary for tempral data storage
+news_dict = {
+    "title":[],
+    'news':[],
+    'links':[],
+    'date':[],
+    "author":[]
+}
+
+# function to convert the repo-dict to a pandas DataFrame
+def create_csv(title, news, link, date, author):
+    news_dict['title'].extend(title)
+    news_dict['news'].extend(news)
+    news_dict['links'].extend(link)
+    news_dict['date'].extend(date)
+    news_dict['author'].extend(author)
+    
+    return pd.DataFrame(news_dict)
